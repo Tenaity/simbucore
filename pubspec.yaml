@@ -2,21 +2,37 @@ name: simbucore
 description: Cross project code to support flutter application development
 
 version: 0.0.1
-homepage:
 
 environment:
-  sdk: '>=2.18.1 <3.0.0'
+  sdk: ">=2.18.1 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-    
-  args: ^2.3.0
 
-dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  args: ^2.3.0
+
+  # A reactive state caching and data-binding framework
+  # Recommend replacement for provider: that is mentioned by flutter
+  # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
+  hooks_riverpod:
+
+  # A fully featured Gherkin parser and test runner.
+  gherkin:
+
+  # A fully featured Gherkin parser and test runner. Works with Flutter and Dart 2.
+  #
+  # This implementation of the Gherkin tries to follow as closely as possible
+  # other implementations of Gherkin and specifically Cucumber in it's various forms.
+  # flutter_gherkin:
+  # Using pre-release as it uses the new integration_test that is replacing the flutter_driver package.
+  flutter_gherkin: ^3.0.0-rc.17
+
+dev_dependencies:
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the

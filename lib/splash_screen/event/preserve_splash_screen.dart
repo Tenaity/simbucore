@@ -1,1 +1,1 @@
-class PreserveSplashScreen{}
+class PreserveSplashScreen {}

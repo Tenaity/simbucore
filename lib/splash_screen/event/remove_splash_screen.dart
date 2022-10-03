@@ -1,1 +1,1 @@
-class RemoveSplashScreen{}
+class RemoveSplashScreen {}

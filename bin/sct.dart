@@ -22,7 +22,8 @@ const refreshFeatures = 'refreshFeatures';
 void main(List<String> arguments) {
   exitCode = 0; // presume success
 
-  final parser = ArgParser()..addFlag(runFeatureTests, negatable: false, abbr: 'f');
+  final parser = ArgParser()
+    ..addFlag(runFeatureTests, negatable: false, abbr: 'f');
   parser.addFlag(refreshFeatures, negatable: false, abbr: 'r');
   parser.addFlag(viewcucumberreport, negatable: false, abbr: 'c');
 
@@ -43,7 +44,7 @@ Future<void> sct(
 }) async {
   try {
     var path = args[0];
-    
+
     if (runFeatureTests) {
       var device = args[1];
       runTheFeatureTestsAndCreateTheCucumberReport(path, device);

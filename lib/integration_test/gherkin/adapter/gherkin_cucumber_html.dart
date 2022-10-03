@@ -3,7 +3,6 @@
   by the cucumber html reporter.
 */
 
-
 const String escapedSpeechedMark = '\\"';
 const String gherkinElement = '"gherkin_reports": "[[{"';
 const String gherkinElementClosingBrackets = '}]]"';
