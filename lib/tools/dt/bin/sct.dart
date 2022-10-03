@@ -5,9 +5,9 @@
  * Commands:
  * 
  * Run feature tests and show cucumber report:
- *  dart run tools/dt/bin/dt.dart -b /Users/simbu/Mobile/flutter/digestableme B7A5F50E-DA94-49D0-913F-698AF846365D
+ *  dart run tools/dt/bin/sct.dart -b /Users/simbu/Mobile/flutter/myFlutterProject B7A5F50E-DA94-49D0-913F-698AF846365D
  * Rebuild features
- *  dart run tools/dt/bin/dt.dart -c /Users/simbu/Mobile/flutter/digestableme
+ *  dart run tools/sct/bin/dt.dart -c /Users/simbu/Mobile/flutter/myFlutterProject
 */
 
 import 'dart:io';
@@ -29,13 +29,13 @@ void main(List<String> arguments) {
   ArgResults argResults = parser.parse(arguments);
   final args = argResults.rest;
 
-  dt(args,
+  sct(args,
       runFeatureTests: argResults[runFeatureTests] as bool,
       refreshFeatures: argResults[refreshFeatures] as bool,
       viewCucumberReport: argResults[viewcucumberreport] as bool);
 }
 
-Future<void> dt(
+Future<void> sct(
   List<String> args, {
   bool runFeatureTests = false,
   bool refreshFeatures = false,
