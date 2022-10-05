@@ -12,8 +12,8 @@
 
 import 'dart:io';
 import 'package:args/args.dart';
-import 'package:simbucore/tools/dt/bin/bdd_rebuild_features.dart';
-import 'package:simbucore/tools/dt/bin/bdd_report.dart';
+import 'package:simbucore/tools/gherkin_feature_testing/bdd_rebuild_features.dart';
+import 'package:simbucore/tools/gherkin_feature_testing/bdd_report.dart';
 
 const runFeatureTests = 'runfeaturetests';
 const viewcucumberreport = 'viewcucumberreport';
