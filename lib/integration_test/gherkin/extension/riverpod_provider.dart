@@ -8,7 +8,7 @@ import "package:flutter_test/flutter_test.dart";
 
 extension RiverpodProviderExtension
     on AppDriverAdapter<dynamic, dynamic, dynamic> {
-  // Returns the Riverpod ref from the stateful DigestableMe widget.
+  // Returns the Riverpod ref from the stateful app widget.
   WidgetRef providerRef<T>() {
     var st = nativeDriver.state;
     var dm = st(find.byType(T));

@@ -27,7 +27,7 @@ Run and report on flutter_gherkin feature tests
 
 {
     "name": "Refresh Features",
-    "command": "dart run tools/dt/bin/dt.dart -r /Users/simbu/Src/flutter/digestableme", 
+    "command": "dart run tools/dt/bin/dt.dart -r /Users/simbu/Src/flutter/myProjectName", 
     "request": "launch",
     "type": "f5anything"
 },

@@ -1,5 +1,5 @@
 /*
-  Usage: dart run tools/dt/bin/dt.dart -b /Users/simbu/Mobile/flutter/digestableme iPhone13Pro
+  Usage: dart run tools/dt/bin/dt.dart -b /Users/simbu/Mobile/flutter/myProjectName iPhone13Pro
 */
 import 'dart:io';
 
@@ -73,7 +73,7 @@ void createCucumberJsReport(String device) {
   var jsonReportPath = gherkinReportPath;
   var jsonReport = File(jsonReportPath).readAsStringSync();
   var formattedJson = formatJsonForCucumberHtmlReport(jsonReport);
-  var formattedReportPath = "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/digestableme.json";
+  var formattedReportPath = "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/feature-test-report.json";
   File(formattedReportPath).writeAsStringSync(formattedJson);
 }
 
