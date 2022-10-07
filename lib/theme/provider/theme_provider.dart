@@ -12,6 +12,11 @@ class ThemeNotifier extends StateNotifier<Themer> {
   void changeBrightnessMode(Brightness brightness) {
     state = Themer(brightnessValue: brightness, whiteLabelValue: state.whitelabel);
   }
+
+  // Change the theme's whitelabel
+  void changeWhitelabel(WhiteLabel whiteLabel) {
+    state = Themer(brightnessValue: state.brightness, whiteLabelValue: whiteLabel);
+  }
 }
 
 final defaultTheme = Themer(
