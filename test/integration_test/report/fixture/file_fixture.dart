@@ -10,6 +10,6 @@ String fileFixture(String name) {
    if (dir.endsWith('/test')) {
      dir = dir.replaceAll('/test', '');
    }
-   var filePath = '$dir/test/integration_test/report/fixture/$name';
+   var filePath = '$dir/test/integration_test/gherkin/report/fixture/$name';
    return File(filePath).readAsStringSync();
 }

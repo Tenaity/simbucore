@@ -16,6 +16,6 @@ List<String> openSimulator(String simulatorUuid) {
 //flutter drive --driver=test_driver/integration_test_feature_driver.dart --target=integration_test/gherkin_suite_test.dart
 List<String> runTheFeatureTests = [
   "drive",
-  "--driver=test_driver/integration_test_feature_driver.dart",
+  "--driver=simbucore:test_driver/feature_driver.dart",
   "--target=integration_test/gherkin_suite_test.dart"
 ];

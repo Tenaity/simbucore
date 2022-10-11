@@ -16,7 +16,7 @@ const String iPhone8UUID = "6FB30977-E11C-4001-A749-4403F4B3E261";
 const String iPhone13ProUUID = "A49BC245-DB99-4E14-9870-131C8976CA2C";
 const String iPhone14ProUUID = "0A2BDB91-D9C7-4897-94EA-C48A499CCE19";
 const String pixel5EmulatorID = "emulator-5554";
-final String gherkinReportPath = "${Directory.current.path}/integration_test/report/integration_response_data.json";
+final String gherkinReportPath = "${Directory.current.path}/integration_test/gherkin/report/integration_response_data.json";
 
 final deviceUuidMap = {
     iPhone13Pro: iPhone13ProUUID,
@@ -64,7 +64,7 @@ Future<void> deleteExistingReport() async {
 
 Future<void> runFeatureTests(String deviceId) async {
   stdout.writeln("   Running Application Feature Tests... DeviceId: $deviceId");
-  stdout.writeln("      Cmd: flutter drive -driver=test_driver/integration_test_feature_driver.dart --target=integration_test/gherkin_suite_test.dart -d $deviceId");
+  stdout.writeln("      Cmd: flutter drive -driver=simbucore:test_driver/feature_driver.dart --target=integration_test/gherkin_suite_test.dart -d $deviceId");
   await runCommand(flutterCmd, [...runTheFeatureTests, "-d", deviceId]);
 }
 
