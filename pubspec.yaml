@@ -16,15 +16,14 @@ dependencies:
 
   test: any
   
+  # Parses raw command-line arguments into a set of options and values.
   args: ^2.3.0
 
-  # A reactive state caching and data-binding framework
-  # Recommend replacement for provider: that is mentioned by flutter
-  # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
-  hooks_riverpod:
+  # A simple Event Bus using Dart Streams for decoupling applications.
+  event_bus:
 
-  # A fully featured Gherkin parser and test runner.
-  gherkin:
+  # Get current device information from within the Flutter application.
+  device_info_plus:
 
   # A fully featured Gherkin parser and test runner. Works with Flutter and Dart 2.
   #
@@ -33,9 +32,23 @@ dependencies:
   # flutter_gherkin:
   # Using pre-release as it uses the new integration_test that is replacing the flutter_driver package.
   flutter_gherkin: ^3.0.0-rc.17
+
+  # A fully featured Gherkin parser and test runner.
+  gherkin:
+
+  # A reactive state caching and data-binding framework
+  # Recommend replacement for provider: that is mentioned by flutter
+  # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
+  hooks_riverpod:
+
+  # With this plugin you can perform platform detection on all platforms, including Web, without errors.
+  universal_platform:
+
+  # Detects the current browser and version of the browser.
+  web_browser_detect:
+
 dev_dependencies:
-  
-  
+
   # automatically organize your dart imports
   import_sorter:
 
