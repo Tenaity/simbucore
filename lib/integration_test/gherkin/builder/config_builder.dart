@@ -4,16 +4,15 @@
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
+import 'package:simbucore/integration_test/gherkin/builder/hook_buillder.dart';
 import 'package:simbucore/integration_test/gherkin/builder/tag_builder.dart';
 
 // World
 import 'extended_world_builder.dart';
 
-FlutterTestConfiguration gherkinTestConfiguration(Iterable<Pattern> features, Iterable<StepDefinitionGeneric<World>> stepDefinitions, {Hook? hook}){
+FlutterTestConfiguration gherkinTestConfiguration(Iterable<Pattern> features, Iterable<StepDefinitionGeneric<World>> stepDefinitions){
   List<Hook> hooks = [];
-  if (hook != null){
-    hooks.add(hook);
-  }
+  
   var testConfiguration =  FlutterTestConfiguration(
     features: features,
     stepDefinitions: stepDefinitions,
@@ -34,7 +33,7 @@ FlutterTestConfiguration gherkinTestConfiguration(Iterable<Pattern> features, It
       ),
     ],
     //waitImplicitlyAfterAction: true,
-    hooks: hooks,
+    hooks: [Hooks()],
   );
   return testConfiguration;
 }
