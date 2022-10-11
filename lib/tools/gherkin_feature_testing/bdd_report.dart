@@ -64,7 +64,7 @@ Future<void> deleteExistingReport() async {
 
 Future<void> runFeatureTests(String deviceId) async {
   stdout.writeln("   Running Application Feature Tests... DeviceId: $deviceId");
-  stdout.writeln("      Cmd: flutter drive -driver=simbucore:test_driver/feature_driver.dart --target=integration_test/gherkin_suite_test.dart -d $deviceId");
+  stdout.writeln("      Cmd: flutter drive -driver=test_driver/feature_driver.dart --target=integration_test/gherkin_suite_test.dart -d $deviceId");
   await runCommand(flutterCmd, [...runTheFeatureTests, "-d", deviceId]);
 }
 
