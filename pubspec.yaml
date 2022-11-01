@@ -44,6 +44,9 @@ dependencies:
   # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
   hooks_riverpod:
 
+  # Extended date/time methods
+  intl:
+
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger:
 

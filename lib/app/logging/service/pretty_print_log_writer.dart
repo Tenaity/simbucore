@@ -1,4 +1,4 @@
-
+import 'package:intl/intl.dart';
 import 'package:simbucore/app/logging/service/log_writer.dart';
 import 'package:logger/logger.dart';
 
@@ -8,32 +8,46 @@ class PrettyPrintLogWriter implements LogWriter {
 
   PrettyPrintLogWriter() {
     logger = Logger(
-      printer: PrettyPrinter(methodCount: 0),
+      printer: PrettyPrinter(
+        noBoxingByDefault: true,
+        methodCount: 0,
+        colors: false,
+      ),
     );
   }
 
   @override
   void debug(message) {
-    logger.d(message);
+    logger.d(prefixDateTime(message));
   }
 
   @override
   void error(message, {StackTrace? stackTrace}) {
-    logger.e(message, stackTrace);
+    logger.e(prefixDateTime(message), stackTrace);
   }
 
   @override
   void fatal(message, {StackTrace? stackTrace}) {
-    logger.wtf(message, stackTrace);
+    logger.wtf(prefixDateTime(message), stackTrace);
   }
 
   @override
   void info(message) {
-    logger.i(message);
+    logger.i(prefixDateTime(message));
   }
 
   @override
   void warn(message) {
-    logger.w(message);
+    logger.w(prefixDateTime(message));
+  }
+
+  dynamic prefixDateTime(dynamic message){
+    if (message is! String){
+      return message;
+    }
+
+    var dtPrefix = '${DateFormat("yyyyMMdd H:m:s").format(DateTime.now())} ';
+
+    return dtPrefix + message;
   }
 }
