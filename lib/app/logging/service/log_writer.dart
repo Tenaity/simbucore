@@ -10,8 +10,8 @@ abstract class LogWriter{
   void warn(dynamic message);
 
   // Error info.
-  void error(dynamic message, StackTrace? stackTrace);
+  void error(dynamic message, {StackTrace? stackTrace});
 
   // WTF! Game over.
-  void fatal(dynamic message, StackTrace? stackTrace);
+  void fatal(dynamic message, {StackTrace? stackTrace});
 }

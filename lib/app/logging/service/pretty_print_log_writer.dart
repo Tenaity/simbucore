@@ -18,12 +18,12 @@ class PrettyPrintLogWriter implements LogWriter {
   }
 
   @override
-  void error(message, StackTrace? stackTrace) {
+  void error(message, {StackTrace? stackTrace}) {
     logger.e(message, stackTrace);
   }
 
   @override
-  void fatal(message, StackTrace? stackTrace) {
+  void fatal(message, {StackTrace? stackTrace}) {
     logger.wtf(message, stackTrace);
   }
 
