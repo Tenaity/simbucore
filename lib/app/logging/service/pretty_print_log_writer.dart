@@ -46,7 +46,7 @@ class PrettyPrintLogWriter implements LogWriter {
       return message;
     }
 
-    var dtPrefix = '${DateFormat("yyyyMMdd H:m:ss").format(DateTime.now())} : ';
+    var dtPrefix = '${DateFormat("yyyyMMdd HH:mm:ss").format(DateTime.now())} : ';
 
     return dtPrefix + message;
   }
