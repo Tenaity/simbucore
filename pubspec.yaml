@@ -44,6 +44,9 @@ dependencies:
   # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
   hooks_riverpod:
 
+  # Small, easy to use and extensible logger which prints beautiful logs.
+  logger:
+
   # With this plugin you can perform platform detection on all platforms, including Web, without errors.
   universal_platform:
 

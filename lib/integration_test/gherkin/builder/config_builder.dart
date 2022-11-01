@@ -11,8 +11,6 @@ import 'package:simbucore/integration_test/gherkin/builder/tag_builder.dart';
 import 'extended_world_builder.dart';
 
 FlutterTestConfiguration gherkinTestConfiguration(Iterable<Pattern> features, Iterable<StepDefinitionGeneric<World>> stepDefinitions){
-  List<Hook> hooks = [];
-  
   var testConfiguration =  FlutterTestConfiguration(
     features: features,
     stepDefinitions: stepDefinitions,

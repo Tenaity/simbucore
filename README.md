@@ -4,7 +4,9 @@ Cross project code to support flutter application development
 
 ## Features
 
-* "ft" **F**eature **T**est tools.
+* "ft" **F**eature **T**est tools to run and report on feature tests.
+* Log writer - Log debug, info, warning and error messages.
+* Device and Platform information providers.
 
 ## Additional information
 
@@ -19,7 +21,7 @@ Run and report on flutter_gherkin feature tests
 * Refresh features
 * Run feature tests
 * Create cumcumber html report from feature test json results
-* Initial version.
+* Log writer - Log debug, info, warning and error messages.
 
 ### Launch.json examples
 
