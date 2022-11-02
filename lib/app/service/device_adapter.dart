@@ -169,10 +169,10 @@ class DeviceAdapter {
     if (Platform.isAndroid) {
       var info = await deviceInfo.androidInfo;
       return Device(
-        name: info.product!,
-        model: info.model!,
+        name: info.product,
+        model: info.model,
         version: info.version.toString(),
-        identifier: info.id!,
+        identifier: info.id,
       );
     }
 
