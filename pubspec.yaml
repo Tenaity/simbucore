@@ -75,7 +75,9 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-  # assets:
+  assets:
+    - test/integration_test/report/fixture/unformatted_json_report.json
+    
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   #
