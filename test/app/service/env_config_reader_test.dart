@@ -25,7 +25,7 @@ import 'package:simbucore/app/service/env_config_reader.dart';
 
 void main() {
   group(
-      'Environment Config Reader Service:  ',
+      'Environment Config JSON Reader Service:  ',
       () {
     readAPIEnpoint();
   });
@@ -40,7 +40,8 @@ String configFileJson() {
 }
 
 Future<void> readAPIEnpoint() async {
-  return test('Knows the API endpoint.', () {
+  return test('Read the API endpoint.', () {
+    
     var reader = EnvConfigReader(configFileJson());
     var apiEndpoint = reader.value("api_endpoint_url");
 

@@ -28,6 +28,9 @@ dependencies:
   # Get current device information from within the Flutter application.
   device_info_plus:
 
+  # Offline-first data framework with a customizable REST client and powerful model relationships.
+  flutter_data: ^1.4.7
+
   # A fully featured Gherkin parser and test runner. Works with Flutter and Dart 2.
   #
   # This implementation of the Gherkin tries to follow as closely as possible
@@ -76,6 +79,7 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   assets:
+    - app_config.json
     - test/integration_test/report/fixture/unformatted_json_report.json
     
   #   - images/a_dot_burr.jpeg
