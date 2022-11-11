@@ -1,6 +1,6 @@
 import 'package:event_bus/event_bus.dart';
-import 'package:simbucore/app/events/extension/counter_functions.dart';
-import 'package:simbucore/app/events/service/i_message_bus_service.dart';
+import 'package:simbucore/app/event_store/extension/counter_functions.dart';
+import 'package:simbucore/app/event_store/service/i_message_bus_service.dart';
 import 'package:simbucore/app/routes/event/navigated.dart';
 
 class EventBusService implements IMessageBusService {

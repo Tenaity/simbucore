@@ -136,7 +136,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:web_browser_detect/web_browser_detect.dart';
 
 // Project imports:
-import 'package:simbucore/app/model/device.dart';
+import 'package:simbucore/app/core/model/device.dart';
 
 class DeviceAdapter {
   // Use the current device info to

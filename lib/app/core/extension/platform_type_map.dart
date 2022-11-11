@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:simbucore/app/model/platform_type.dart';
+import 'package:simbucore/app/core/model/platform_type.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 extension PlatformTypeMap on UniversalPlatformType {

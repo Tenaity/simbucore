@@ -3,7 +3,7 @@
 */
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simbucore/app/service/env_config_reader.dart';
+import 'package:simbucore/app/core/service/env_config_reader.dart';
 
 //
 // #     #                   #######

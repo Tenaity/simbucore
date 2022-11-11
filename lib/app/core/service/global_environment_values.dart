@@ -1,7 +1,7 @@
 // Singleton that contains all the environment values loaded from app_config.json when the application starts
 
-import 'package:simbucore/app/model/environment_values.dart';
-import 'package:simbucore/app/service/env_config_reader.dart';
+import 'package:simbucore/app/core/model/environment_values.dart';
+import 'package:simbucore/app/core/service/env_config_reader.dart';
 
 class GlobalEnvironmentValues{
   GlobalEnvironmentValues._();

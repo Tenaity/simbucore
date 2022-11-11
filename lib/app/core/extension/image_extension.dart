@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/widgets.dart';
 
 // Package imports:
-import 'package:simbucore/app/model/application_mode.dart';
+import 'package:simbucore/app/core/model/application_mode.dart';
 
 const List<int> _transparentImage = <int>[
   0x89,

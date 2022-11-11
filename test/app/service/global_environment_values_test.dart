@@ -5,7 +5,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simbucore/app/service/global_environment_values.dart';
+import 'package:simbucore/app/core/service/global_environment_values.dart';
 
 //
 // #     #                   ####### 

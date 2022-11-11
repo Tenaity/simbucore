@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simbucore/app/events/service/event_store.dart';
-import 'package:simbucore/app/events/service/test_event_bus_service.dart';
+import 'package:simbucore/app/event_store/service/event_store.dart';
+import 'package:simbucore/app/event_store/service/test_event_bus_service.dart';
 import 'package:simbucore/app/routes/event/navigated.dart';
 
 //

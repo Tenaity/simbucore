@@ -9,7 +9,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:simbucore/app/model/screen.dart';
+import 'package:simbucore/app/core/model/screen.dart';
 
 class ScreenAdapter {
   // Use the current device info to
