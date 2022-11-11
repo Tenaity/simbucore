@@ -1,18 +1,12 @@
-// Package imports:
-import 'package:event_bus/event_bus.dart';
-
 // Project imports:
-import 'package:simbucore/app/events/extension/counter_functions.dart';
+import 'package:simbucore/app/events/service/i_message_bus_service.dart';
 
-// Stores events raised by the application
-class EventStore{
-  late EventBus bus;
-  late Map<String, int> eventCounter = {};
-  
-  EventStore(EventBus eventBus){
-    bus = eventBus;
-    bus.on().listen((event) {
-      eventCounter = addOrIncrementValue(eventCounter, event.runtimeType.toString());
-    });
+// Collates events by listening to the application message bus.
+class   EventStore{
+  final IMessageBusService bus;
+  final Map<String, int> eventCounter = {};
+
+  EventStore(this.bus){
+    bus.setCounter(eventCounter);
   }
 }
