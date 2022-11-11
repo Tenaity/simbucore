@@ -1,9 +1,11 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:simbucore/app/events/extension/counter_functions.dart';
 import 'package:simbucore/app/events/service/i_message_bus_service.dart';
+import 'package:simbucore/app/routes/event/navigated.dart';
 
-class EventBusService implements IMessageBusService{
+class EventBusService implements IMessageBusService {
   final EventBus bus;
+  Navigated? _lastNavigationEvent;
 
   EventBusService(this.bus);
 
@@ -11,13 +13,19 @@ class EventBusService implements IMessageBusService{
   void fire(event) {
     bus.fire(event);
   }
-  
+
   @override
   void setCounter(Map<String, int> eventCounter) {
     bus.on().listen((event) {
       addOrIncrementValue(eventCounter, event.runtimeType.toString());
+      if (event is Navigated) {
+        _lastNavigationEvent = event;
+      }
     });
   }
-  
 
+  @override
+  Navigated? lastNavigationEvent() {
+    return _lastNavigationEvent;
+  }
 }

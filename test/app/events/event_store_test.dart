@@ -28,6 +28,7 @@ void main() {
     incrementsEventCounter();
     incrementsEventCounterForMultipleEvents();
     incrementsDifferentEventCounters();
+    recordsTheLastNavigationEvent();
   });
 }
 
@@ -63,5 +64,16 @@ Future<void> incrementsDifferentEventCounters() async {
 
     var noOfCounts = eventStore.eventCounter.length;
     expect(noOfCounts, 2);
+  });
+}
+
+Future<void> recordsTheLastNavigationEvent() async {
+  return test('Records the last navigation event', () {
+    var eventStore = EventStore(TestEventBusService());
+
+    eventStore.bus.fire(Navigated(navigatedEventName));
+
+    Navigated? lastNavigationEvent = eventStore.lastNavigationEvent;
+    expect(lastNavigationEvent != null, true);
   });
 }
