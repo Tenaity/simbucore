@@ -10,5 +10,5 @@ class ProviderResolver{
     return _ref;
   }
 
-  static set widgetRef(WidgetRef widgetRef) => {_ref = widgetRef, _hasWidgetRef = true};
+  static set setRef(WidgetRef widgetRef) => {_ref = widgetRef, _hasWidgetRef = true};
 }
