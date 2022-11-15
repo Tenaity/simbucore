@@ -8,7 +8,7 @@ class NoContextNavigator{
     return navigationKey.currentState!.pushNamed(routeName);
   }
 
-  Future<dynamic> replace(String routeName){
+  Future<dynamic> go(String routeName){
     return navigationKey.currentState!.pushReplacementNamed(routeName);
   }
 

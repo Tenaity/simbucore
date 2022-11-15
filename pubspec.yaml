@@ -42,6 +42,9 @@ dependencies:
   # A fully featured Gherkin parser and test runner.
   gherkin:
 
+  # Declarative routing for Flutter.
+  go_router: ^5.1.6
+  
   # A reactive state caching and data-binding framework
   # Recommend replacement for provider: that is mentioned by flutter
   # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
@@ -58,7 +61,7 @@ dependencies:
 
   # Detects the current browser and version of the browser.
   web_browser_detect:
-
+  
 dev_dependencies:
 
   # automatically organize your dart imports
