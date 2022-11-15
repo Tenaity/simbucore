@@ -6,7 +6,7 @@ class ProviderResolver{
   static bool _hasWidgetRef = false;
 
   static WidgetRef get ref {
-    assert(!_hasWidgetRef, "RiverpodResolver: WidgetRef not available to resolve providers, the root widget must build before we can use this service.");
+    assert(!_hasWidgetRef, "RiverpodResolver: WidgetRef not available to resolve providers, the root widget must initialise before we can use this service.");
     return _ref;
   }
 
