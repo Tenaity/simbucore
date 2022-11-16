@@ -11,7 +11,7 @@ class GoNavigator{
     return _buildContext;
   }
 
-  static set setRef(BuildContext buildContext) => {_buildContext = buildContext, _hasBuildContext = true};
+  static set setBuildContext(BuildContext buildContext) => {_buildContext = buildContext, _hasBuildContext = true};
 
   void push(String routeName){
     GoRouter.of(_buildContext).push(routeName);
