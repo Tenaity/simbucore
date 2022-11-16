@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simbucore/app/event_action/service/action_registrar.dart';
 import 'package:simbucore/app/event_store/service/event_store.dart';
 import 'package:simbucore/app/event_store/service/test_event_bus_service.dart';
 import 'package:simbucore/app/routes/event/navigated.dart';
@@ -35,7 +34,7 @@ void main() {
 
 Future<void> incrementsEventCounter() async {
   return test('Records an event occurance', () {
-    var eventStore = EventStore(TestEventBusService(ActionRegistrar()));
+    var eventStore = EventStore(TestEventBusService());
 
     eventStore.bus.fire(Navigated(navigatedEventName));
 
@@ -46,7 +45,7 @@ Future<void> incrementsEventCounter() async {
 
 Future<void> incrementsEventCounterForMultipleEvents() async {
   return test('Records multiple event occurances', () {
-    var eventStore = EventStore(TestEventBusService(ActionRegistrar()));
+    var eventStore = EventStore(TestEventBusService());
 
     eventStore.bus.fire(Navigated(navigatedEventName));
     eventStore.bus.fire(Navigated(navigatedEventName));
@@ -58,7 +57,7 @@ Future<void> incrementsEventCounterForMultipleEvents() async {
 
 Future<void> incrementsDifferentEventCounters() async {
   return test('Record counts for each event type', () {
-    var eventStore = EventStore(TestEventBusService(ActionRegistrar()));
+    var eventStore = EventStore(TestEventBusService());
 
     eventStore.bus.fire(Navigated(navigatedEventName));
     eventStore.bus.fire("String event");
@@ -70,7 +69,7 @@ Future<void> incrementsDifferentEventCounters() async {
 
 Future<void> recordsTheLastNavigationEvent() async {
   return test('Records the last navigation event', () {
-    var eventStore = EventStore(TestEventBusService(ActionRegistrar()));
+    var eventStore = EventStore(TestEventBusService());
 
     eventStore.bus.fire(Navigated(navigatedEventName));
 
