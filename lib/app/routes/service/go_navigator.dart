@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 // Enable navigation without the BuildContext using a global navigationKey.
-class NoContextNavigator{
+class GoNavigator{
   static late BuildContext _buildContext;
   static bool _hasBuildContext = false;
 
