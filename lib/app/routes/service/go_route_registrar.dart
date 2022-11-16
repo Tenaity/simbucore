@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+/// Register application routes, used to configure GoRouter
 class GoRouteRegistrar {
   final List<GoRoute> _registeredRoutes = [];
 
