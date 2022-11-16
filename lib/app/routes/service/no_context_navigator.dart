@@ -1,18 +1,27 @@
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 // Enable navigation without the BuildContext using a global navigationKey.
 class NoContextNavigator{
-  final GlobalKey<NavigatorState> navigationKey = GlobalKey<NavigatorState>();
+  static late BuildContext _buildContext;
+  static bool _hasBuildContext = false;
 
-  Future<dynamic> push(String routeName){
-    return navigationKey.currentState!.pushNamed(routeName);
+  static BuildContext get buildContext {
+    assert(!_hasBuildContext, "NoContextNavigator: BuildContext is not available to resolve providers, the root widget must initialise before we can use this service.");
+    return _buildContext;
   }
 
-  Future<dynamic> go(String routeName){
-    return navigationKey.currentState!.pushReplacementNamed(routeName);
+  static set setRef(BuildContext buildContext) => {_buildContext = buildContext, _hasBuildContext = true};
+
+  void push(String routeName){
+    GoRouter.of(_buildContext).push(routeName);
   }
 
-  pop(){
-    return navigationKey.currentState!.pop();
+  void go(String routeName){
+    GoRouter.of(_buildContext).go(routeName);
+  }
+
+  void pop(){
+    GoRouter.of(_buildContext).pop();
   }
 }
