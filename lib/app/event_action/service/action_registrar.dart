@@ -5,8 +5,8 @@ class ActionRegistrar{
     actions[eventType] = action;
   }
 
-  Function findByEventType(String eventType) {
+  Function? findByEventType(String eventType) {
     var action = actions[eventType];
-    return action ?? () => "";
+    return action;
   }
 }
