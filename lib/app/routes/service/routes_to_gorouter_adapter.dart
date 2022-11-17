@@ -3,11 +3,17 @@ import 'package:simbucore/app/routes/model/a_route.dart';
 
 class RoutesToGoRouterAdapter {
   final List<ARoute> routeModels;
-  RoutesToGoRouterAdapter(this.routeModels);
+  final String initialLocation;
+  RoutesToGoRouterAdapter(this.routeModels, this.initialLocation){
+    assert(routeModels.any((element) => element.path == initialLocation));
+  }
 
   GoRouter get goRouter => GoRouter(
-      routes: routeModels
-          .map((route) => GoRoute(
-              path: route.path, builder: (context, state) => route.destination))
-          .toList());
+        routes: routeModels
+            .map((route) => GoRoute(
+                path: route.path,
+                builder: (context, state) => route.destination))
+            .toList(),
+        initialLocation: initialLocation,
+      );
 }
