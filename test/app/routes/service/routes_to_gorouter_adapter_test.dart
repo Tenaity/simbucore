@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simbucore/app/routes/model/a_route.dart';
 import 'package:simbucore/app/routes/service/routes_to_gorouter_adapter.dart';
@@ -31,12 +33,17 @@ List<ARoute> routeModels() {
 
 const String initialLocation = "/splash";
 
+FutureOr<String?> routeRedirectPolicy(context, state) {
+  return null;
+}
+
 void main() {
   group('Routes to GoRouter Adapter: ', () {
     buildsGoRouterFromRoutes();
     convertsRoutesToGoRouterRoutes();
     setsAnInitialLocation();
     theIntialLocationMustExistInTheRoutes();
+    canSetupRedirection();
   });
 }
 
@@ -69,5 +76,14 @@ Future<void> theIntialLocationMustExistInTheRoutes() async {
   return test('The initial location must exist in the list of routes', () {
     expect(() => RoutesToGoRouterAdapter(routeModels(), "/notinroutes"),
         throwsAssertionError);
+  });
+}
+
+Future<void> canSetupRedirection() async {
+  return test('Can set redirection policy', () {
+    var goRouter = RoutesToGoRouterAdapter(routeModels(), initialLocation,
+            redirect: routeRedirectPolicy)
+        .goRouter;
+    expect(goRouter.routeInformationParser.redirector != null, true);
   });
 }
