@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-extension GoRouteExtension on BuildContext {
+extension GoRouterExtension on BuildContext {
   void navPush(String routeName){
     GoRouter.of(this).push(routeName);
   }
