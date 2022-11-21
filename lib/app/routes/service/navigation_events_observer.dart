@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:simbucore/app/event_store/service/event_store.dart';
 import 'package:simbucore/app/routes/event/navigated.dart';
 
+/// Raises Nativigated events when the GoRouter navigates.
 class NavigationEventsObserver extends NavigatorObserver {
   final EventStore eventStore;
   NavigationEventsObserver(this.eventStore);
