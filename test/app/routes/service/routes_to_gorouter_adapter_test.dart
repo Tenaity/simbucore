@@ -81,9 +81,12 @@ Future<void> theIntialLocationMustExistInTheRoutes() async {
 
 Future<void> canSetupRedirection() async {
   return test('Can set redirection policy', () {
-    var goRouter = RoutesToGoRouterAdapter(routeModels(), initialLocation,
-            redirect: routeRedirectPolicy)
-        .goRouter;
-    expect(goRouter.routeInformationParser.redirector != null, true);
+    var adapter = RoutesToGoRouterAdapter(
+      routeModels(),
+      initialLocation,
+      redirect: routeRedirectPolicy,
+    );
+
+    expect(adapter.hasRedirectionPolicy, true);
   });
 }
