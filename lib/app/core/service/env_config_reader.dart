@@ -10,6 +10,6 @@ class EnvConfigReader {
   }
 
   String value(String key) {
-    return _config[key];
+    return _config.containsKey(key) ? _config[key] : "";
   }
 }
