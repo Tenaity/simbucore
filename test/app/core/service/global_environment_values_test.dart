@@ -39,6 +39,7 @@ void main() async {
     readAPIEnpointFromFile();
     mapsAPIEnpoint();
     mapsTheEnvironment();
+    mapToAutomatedTestEnvironment();
   });
 }
 
@@ -68,5 +69,14 @@ Future<void> mapsTheEnvironment() async {
     var values = ConfigValueBuilder(environment: environment).build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.environment, Environments.development);
+  });
+}
+
+Future<void> mapToAutomatedTestEnvironment() async {
+  return test('Can set the environment to automated testing.', () {
+    var environment = "automated test";
+    var values = ConfigValueBuilder(environment: environment).build();
+    loadConfigValues(configValues: values);
+    expect(GlobalEnvironmentValues.instance.environment, Environments.automatedTest);
   });
 }

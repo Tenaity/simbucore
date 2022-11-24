@@ -21,6 +21,9 @@ class GlobalEnvironmentValues{
   }
   
   Environments _getEnvironment(String value) {
+    if (value.toLowerCase() == "automated test"){
+      return Environments.automatedTest;
+    }
     return Environments.development;
   }
 
