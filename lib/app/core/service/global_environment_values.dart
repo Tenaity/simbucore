@@ -21,8 +21,14 @@ class GlobalEnvironmentValues{
   }
   
   Environments _getEnvironment(String value) {
+    if (value.toLowerCase() == "live"){
+      return Environments.live;
+    }
     if (value.toLowerCase() == "automated test"){
       return Environments.automatedTest;
+    }
+    if (value.toLowerCase() == "uat"){
+      return Environments.uat;
     }
     return Environments.development;
   }

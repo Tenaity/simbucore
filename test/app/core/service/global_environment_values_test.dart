@@ -40,6 +40,8 @@ void main() async {
     mapsAPIEnpoint();
     mapsTheEnvironment();
     mapToAutomatedTestEnvironment();
+    mapToUatEnvironment();
+    mapToLiveEnvironment();
   });
 }
 
@@ -78,5 +80,23 @@ Future<void> mapToAutomatedTestEnvironment() async {
     var values = ConfigValueBuilder(environment: environment).build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.environment, Environments.automatedTest);
+  });
+}
+
+Future<void> mapToUatEnvironment() async {
+  return test('Can set the environment to uat.', () {
+    var environment = "uat";
+    var values = ConfigValueBuilder(environment: environment).build();
+    loadConfigValues(configValues: values);
+    expect(GlobalEnvironmentValues.instance.environment, Environments.uat);
+  });
+}
+
+Future<void> mapToLiveEnvironment() async {
+  return test('Can set the environment to live.', () {
+    var environment = "live";
+    var values = ConfigValueBuilder(environment: environment).build();
+    loadConfigValues(configValues: values);
+    expect(GlobalEnvironmentValues.instance.environment, Environments.live);
   });
 }
