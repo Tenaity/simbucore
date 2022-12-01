@@ -31,7 +31,7 @@ Future<void> createAndViewTheCucumberReport(String path, String device) async {
   await viewCucumberJsReport(path);
 }
 
-Future<void> runTheFeatureTestsAndCreateTheCucumberReport(String path, String device) async {
+Future<void> runTheFeatureTestsAndCreateTheCucumberReport(String path, String device, String featureFile) async {
   var deviceId = deviceUuidMap[device] ?? iPhone14ProUUID;
   stdout.writeln("BDD Report. Device: $device DevidId: $deviceId");
   if (device.contains(iPhone)) {
@@ -39,7 +39,7 @@ Future<void> runTheFeatureTestsAndCreateTheCucumberReport(String path, String de
   }
   await deleteExistingReport();
   await createDefaultGherkinReport();
-  await runFeatureTests(deviceId);
+  await runFeatureTests(deviceId, featureFile);
   createCucumberJsReport(device);
   createReportMetaData(device);
   await viewCucumberJsReport(path);
@@ -62,9 +62,12 @@ Future<void> deleteExistingReport() async {
   await runCommand(deleteCmd, [reportPath]);
 }
 
-Future<void> runFeatureTests(String deviceId) async {
+Future<void> runFeatureTests(String deviceId, String featureFile) async {
+  if (featureFile == ""){
+    featureFile = "gherkin_suite_test";
+  }
   stdout.writeln("   Running Application Feature Tests... DeviceId: $deviceId");
-  stdout.writeln("      Cmd: flutter drive -driver=test_driver/feature_driver.dart --target=integration_test/gherkin_suite_test.dart -d $deviceId");
+  stdout.writeln("      Cmd: flutter drive -driver=test_driver/feature_driver.dart --target=integration_test/$featureFile.dart -d $deviceId");
   await runCommand(flutterCmd, [...runTheFeatureTests, "-d", deviceId]);
 }
 

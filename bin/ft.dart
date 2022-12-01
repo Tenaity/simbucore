@@ -47,7 +47,8 @@ Future<void> sct(
 
     if (runFeatureTests) {
       var device = args[1];
-      runTheFeatureTestsAndCreateTheCucumberReport(path, device);
+      var featureFile = args.length > 2 ? args[2] : "";
+      runTheFeatureTestsAndCreateTheCucumberReport(path, device, featureFile);
     } else if (refreshFeatures) {
       rebuildTheBDDFeatureScaffold(path);
     } else if (viewCucumberReport) {
