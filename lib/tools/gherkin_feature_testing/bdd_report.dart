@@ -16,12 +16,13 @@ const String iPhone8UUID = "6FB30977-E11C-4001-A749-4403F4B3E261";
 const String iPhone13ProUUID = "A49BC245-DB99-4E14-9870-131C8976CA2C";
 const String iPhone14ProUUID = "060DB285-2820-411B-B5F7-76F9739DA934";
 const String pixel5EmulatorID = "emulator-5554";
-final String  gherkinReportPath = "${Directory.current.path}/integration_test/gherkin/report/integration_response_data.json";
+final String gherkinReportPath =
+    "${Directory.current.path}/integration_test/gherkin/report/integration_response_data.json";
 
 final deviceUuidMap = {
-    iPhone13Pro: iPhone13ProUUID,
-    iPhone8: iPhone8UUID,
-    pixel5: pixel5EmulatorID,
+  iPhone13Pro: iPhone13ProUUID,
+  iPhone8: iPhone8UUID,
+  pixel5: pixel5EmulatorID,
 };
 
 Future<void> createAndViewTheCucumberReport(String path, String device) async {
@@ -31,7 +32,8 @@ Future<void> createAndViewTheCucumberReport(String path, String device) async {
   await viewCucumberJsReport(path);
 }
 
-Future<void> runTheFeatureTestsAndCreateTheCucumberReport(String path, String device, String featureFile) async {
+Future<void> runTheFeatureTestsAndCreateTheCucumberReport(
+    String path, String device, String featureFile) async {
   var deviceId = deviceUuidMap[device] ?? iPhone14ProUUID;
   stdout.writeln("BDD Report. Device: $device DevidId: $deviceId");
   if (device.contains(iPhone)) {
@@ -48,7 +50,8 @@ Future<void> runTheFeatureTestsAndCreateTheCucumberReport(String path, String de
 Future<void> openiPhoneSimulator(String simulatorUuid, String path) async {
   Directory.current = path;
   stdout.writeln("   Opening iPhone simulator...");
-  await runCommand(openAppCmd, openSimulator(simulatorUuid)).timeout(const Duration(seconds: 3));
+  await runCommand(openAppCmd, openSimulator(simulatorUuid))
+      .timeout(const Duration(seconds: 3));
 }
 
 Future<void> createDefaultGherkinReport() async {
@@ -63,12 +66,19 @@ Future<void> deleteExistingReport() async {
 }
 
 Future<void> runFeatureTests(String deviceId, String featureFile) async {
-  if (featureFile == ""){
+  if (featureFile == "") {
     featureFile = "gherkin_suite_test";
   }
   stdout.writeln("   Running Application Feature Tests... DeviceId: $deviceId");
-  stdout.writeln("      Cmd: flutter drive -driver=test_driver/feature_driver.dart --target=integration_test/$featureFile.dart -d $deviceId");
-  await runCommand(flutterCmd, [...runTheFeatureTests, "-d", deviceId]);
+  stdout.writeln(
+      "      Cmd: flutter drive -driver=test_driver/feature_driver.dart --target=integration_test/$featureFile.dart -d $deviceId");
+
+  await runCommand(flutterCmd, [
+    ...runTheFeatureTests,
+    "--target=integration_test/$featureFile.dart",
+    "-d",
+    deviceId
+  ]);
 }
 
 void createCucumberJsReport(String device) {
@@ -76,14 +86,14 @@ void createCucumberJsReport(String device) {
   var jsonReportPath = gherkinReportPath;
   var jsonReport = File(jsonReportPath).readAsStringSync();
   var formattedJson = formatJsonForCucumberHtmlReport(jsonReport);
-  var formattedReportPath = "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/feature_test_report.json";
+  var formattedReportPath =
+      "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/feature_test_report.json";
   File(formattedReportPath).writeAsStringSync(formattedJson);
 }
 
-void createReportMetaData(String deviceName){
+void createReportMetaData(String deviceName) {
   // "Platform": "iOS 15.4",
-  var metaJson = 
-  '''
+  var metaJson = '''
 {
   "App Version":"0.1",
   "Test Environment": "Development",
@@ -93,7 +103,8 @@ void createReportMetaData(String deviceName){
 }
   ''';
   metaJson = metaJson.replaceAll("deviceId", deviceName);
-  var metaPath = "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/meta.json";
+  var metaPath =
+      "${Directory.current.path}/integration_test/gherkin/reporter/cucumber-html/meta.json";
   File(metaPath).writeAsStringSync(metaJson);
 }
 

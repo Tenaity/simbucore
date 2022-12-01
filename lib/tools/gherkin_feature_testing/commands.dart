@@ -17,5 +17,4 @@ List<String> openSimulator(String simulatorUuid) {
 List<String> runTheFeatureTests = [
   "drive",
   "--driver=test_driver/feature_driver.dart",
-  "--target=integration_test/gherkin_suite_test.dart"
 ];
