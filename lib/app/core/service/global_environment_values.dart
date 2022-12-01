@@ -9,15 +9,17 @@ class GlobalEnvironmentValues{
   static final instance = GlobalEnvironmentValues._();
 
   late EnvironmentValues _values;
+  bool initialised = false;
   
-  get apiEndpoint => _values.apiEndpoint;
-  get environment => _values.environment;
-
+  String get apiEndpoint => _values.apiEndpoint;
+  Environments get environment => _values.environment;
+  
   void loadValues(String jsonEnvironmentValues){
     var reader = EnvConfigReader(jsonEnvironmentValues);
     var apiEndpoint = reader.value("api_endpoint_url");
     var environment = _getEnvironment(reader.value("environment"));
     _values = EnvironmentValues(apiEndpoint, environment);
+    initialised = true;
   }
   
   Environments _getEnvironment(String value) {
