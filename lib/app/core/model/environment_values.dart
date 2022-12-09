@@ -5,6 +5,9 @@ import 'package:simbucore/app/core/model/environments.dart';
 class EnvironmentValues{
   final String apiEndpoint;
   final Environments environment;
+  final String authEndpoint;
+  final String tokenEndpoint;
+  final List<String> authScopes;
 
-  EnvironmentValues(this.apiEndpoint, this.environment);
+  EnvironmentValues(this.apiEndpoint, this.environment, this.authEndpoint, this.tokenEndpoint, this.authScopes);
 }
