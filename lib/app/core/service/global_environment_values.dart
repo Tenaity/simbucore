@@ -17,6 +17,7 @@ class GlobalEnvironmentValues{
   String get authEndpoint => _values.authEndpoint;
   List<String> get authScopes => _values.authScopes;
   String get tokenEndpoint => _values.tokenEndpoint;
+  String get applicationClientId => _values.clientId;
 
   void loadValues(String jsonEnvironmentValues){
     var reader = EnvConfigReader(jsonEnvironmentValues);
@@ -25,7 +26,8 @@ class GlobalEnvironmentValues{
     var authEndpoint = reader.value("auth_endpoint");
     var tokenEndpoint = reader.value("token_endpoint");
     var scopes = _getScopes(reader.value("auth_scopes"));
-    _values = EnvironmentValues(apiEndpoint, environment, authEndpoint, tokenEndpoint, scopes);
+    var clientId = reader.value("application_client_id");
+    _values = EnvironmentValues(apiEndpoint, environment, authEndpoint, tokenEndpoint, scopes, clientId);
   }
   
   Environments _getEnvironment(String value) {

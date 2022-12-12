@@ -50,6 +50,7 @@ void main() async {
     mapsSpacesToEmptyListOfScopes();
     ignoresEmptyStringScopes();
     ignoresScopesThatJustContainSpaces();
+    mapsClientId();
   });
 }
 
@@ -176,5 +177,13 @@ Future<void> ignoresScopesThatJustContainSpaces() async {
     var values = ConfigValueBuilder(authScope: "    ,$scope1,$scope2").build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.authScopes.length, 2);
+  });
+}
+
+Future<void> mapsClientId() async {
+  return test('Maps the client id.', () {
+    var values = ConfigValueBuilder(clientId: ConfigValueBuilder.applicationClientId).build();
+    loadConfigValues(configValues: values);
+    expect(GlobalEnvironmentValues.instance.applicationClientId, ConfigValueBuilder.applicationClientId);
   });
 }

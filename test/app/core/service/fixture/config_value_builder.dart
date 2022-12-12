@@ -8,20 +8,22 @@ class ConfigValueBuilder {
   static const tokenEndpointUri = "https://login.microsoftonline.com/$yourAzureADTenantID/oauth2/v2.0/token";
   static const recipeManagementScope = "api://$yourScopeID/Recipe.Management";
   static const recipeAdminScope = "api://$yourScopeID/Recipe.Admin";
-
+  static const applicationClientId = "11bbb11c-1d1d-1f1h-jk11-sb1ef11111c1";
 
   final String apiEndpoint;
   final String environment;
   final String authScope;
   final String authEndpoint;
   final String tokenEndpoint;
+  final String clientId;
 
   ConfigValueBuilder({
     this.apiEndpoint = apiEndpointUri,
     this.environment = "development", 
     this.authEndpoint = authEndpointUri,
     this.tokenEndpoint = tokenEndpointUri,
-    this.authScope = "$recipeManagementScope;$recipeAdminScope"
+    this.authScope = "$recipeManagementScope;$recipeAdminScope",
+    this.clientId = applicationClientId
   });
 
   String build() {
@@ -31,7 +33,8 @@ class ConfigValueBuilder {
     configValueBuffer.write('"environment": "$environment", ');
     configValueBuffer.write('"auth_endpoint": "$authEndpoint", ');
     configValueBuffer.write('"token_endpoint": "$tokenEndpoint", ');
-    configValueBuffer.write('"auth_scopes": "$authScope" ');
+    configValueBuffer.write('"auth_scopes": "$authScope", ');
+    configValueBuffer.write('"application_client_id": "$clientId" ');
     configValueBuffer.write(fileEnd);
     return configValueBuffer.toString();
   }

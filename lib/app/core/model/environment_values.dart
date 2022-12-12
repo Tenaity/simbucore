@@ -8,6 +8,7 @@ class EnvironmentValues{
   final String authEndpoint;
   final String tokenEndpoint;
   final List<String> authScopes;
+  final String clientId;
 
-  EnvironmentValues(this.apiEndpoint, this.environment, this.authEndpoint, this.tokenEndpoint, this.authScopes);
+  EnvironmentValues(this.apiEndpoint, this.environment, this.authEndpoint, this.tokenEndpoint, this.authScopes, this.clientId);
 }
