@@ -43,7 +43,6 @@ void main() async {
     mapToUatEnvironment();
     mapToLiveEnvironment();
     mapsAuthEndpoint();
-    mapsTokenEndpoint();
     mapsAuthScope();
     mapsMultipleScopes();
     mapsEmptyStringToEmptyListOfScopes();
@@ -111,23 +110,15 @@ Future<void> mapToLiveEnvironment() async {
 }
 
 Future<void> mapsAuthEndpoint() async {
-  return test('Maps the Authorisation endpoint.', () {
+  return test('Maps the Authority endpoint.', () {
     var values = ConfigValueBuilder(authEndpoint: ConfigValueBuilder.authEndpointUri).build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.authEndpoint, ConfigValueBuilder.authEndpointUri);
   });
 }
 
-Future<void> mapsTokenEndpoint() async {
-  return test('Maps the Token endpoint.', () {
-    var values = ConfigValueBuilder(tokenEndpoint: ConfigValueBuilder.tokenEndpointUri).build();
-    loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.tokenEndpoint, ConfigValueBuilder.tokenEndpointUri);
-  });
-}
-
 Future<void> mapsAuthScope() async {
-  return test('Maps the Auth scope.', () {
+  return test('Maps the authorisation Scopes.', () {
     var values = ConfigValueBuilder(authScope: ConfigValueBuilder.recipeManagementScope).build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.authScopes.first, ConfigValueBuilder.recipeManagementScope);
