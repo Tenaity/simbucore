@@ -113,7 +113,7 @@ Future<void> mapsAuthEndpoint() async {
   return test('Maps the Authority endpoint.', () {
     var values = ConfigValueBuilder(authEndpoint: ConfigValueBuilder.authEndpointUri).build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authEndpoint, ConfigValueBuilder.authEndpointUri);
+    expect(GlobalEnvironmentValues.instance.authority, ConfigValueBuilder.authEndpointUri);
   });
 }
 
@@ -121,7 +121,7 @@ Future<void> mapsAuthScope() async {
   return test('Maps the authorisation Scopes.', () {
     var values = ConfigValueBuilder(authScope: ConfigValueBuilder.recipeManagementScope).build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.first, ConfigValueBuilder.recipeManagementScope);
+    expect(GlobalEnvironmentValues.instance.scopes.first, ConfigValueBuilder.recipeManagementScope);
   });
 }
 
@@ -131,7 +131,7 @@ Future<void> mapsMultipleScopes() async {
     var scope2 = ConfigValueBuilder.recipeAdminScope;
     var values = ConfigValueBuilder(authScope: "$scope1,$scope2").build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.length, 2);
+    expect(GlobalEnvironmentValues.instance.scopes.length, 2);
   });
 }
 
@@ -139,7 +139,7 @@ Future<void> mapsEmptyStringToEmptyListOfScopes() async {
   return test('Maps to an empty list when no scopes passed in.', () {
     var values = ConfigValueBuilder(authScope: "").build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.length, 0);
+    expect(GlobalEnvironmentValues.instance.scopes.length, 0);
   });
 }
 
@@ -147,7 +147,7 @@ Future<void> mapsSpacesToEmptyListOfScopes() async {
   return test('Maps to an empty list when scope is just spaces.', () {
     var values = ConfigValueBuilder(authScope: "   ").build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.length, 0);
+    expect(GlobalEnvironmentValues.instance.scopes.length, 0);
   });
 }
 
@@ -157,7 +157,7 @@ Future<void> ignoresEmptyStringScopes() async {
     var scope2 = ConfigValueBuilder.recipeAdminScope;
     var values = ConfigValueBuilder(authScope: "$scope1,,$scope2").build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.length, 2);
+    expect(GlobalEnvironmentValues.instance.scopes.length, 2);
   });
 }
 
@@ -167,7 +167,7 @@ Future<void> ignoresScopesThatJustContainSpaces() async {
     var scope2 = ConfigValueBuilder.recipeAdminScope;
     var values = ConfigValueBuilder(authScope: "    ,$scope1,$scope2").build();
     loadConfigValues(configValues: values);
-    expect(GlobalEnvironmentValues.instance.authScopes.length, 2);
+    expect(GlobalEnvironmentValues.instance.scopes.length, 2);
   });
 }
 

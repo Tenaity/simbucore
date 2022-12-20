@@ -14,8 +14,8 @@ class GlobalEnvironmentValues{
   
   String get apiEndpoint => _values.apiEndpoint;
   Environments get environment => _values.environment;
-  String get authEndpoint => _values.authority;
-  List<String> get authScopes => _values.authScopes;
+  String get authority => _values.authority;
+  List<String> get scopes => _values.authScopes;
   String get applicationClientId => _values.clientId;
 
   void loadValues(String jsonEnvironmentValues){
