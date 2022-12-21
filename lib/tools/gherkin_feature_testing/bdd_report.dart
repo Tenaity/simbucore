@@ -14,7 +14,7 @@ const String pixel5 = "pixel5";
 
 const String iPhone8UUID = "6FB30977-E11C-4001-A749-4403F4B3E261";
 const String iPhone13ProUUID = "A49BC245-DB99-4E14-9870-131C8976CA2C";
-const String iPhone14ProUUID = "060DB285-2820-411B-B5F7-76F9739DA934";
+const String iPhone14ProUUID = "9B73F4F6-4452-49A2-ADBD-23F6A02E9A7A";
 const String pixel5EmulatorID = "emulator-5554";
 final String gherkinReportPath =
     "${Directory.current.path}/integration_test/gherkin/report/integration_response_data.json";
