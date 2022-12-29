@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simbucore/app/core/model/environments.dart';
 import 'package:simbucore/app/core/service/global_environment_values.dart';
+import 'package:simbucore/app/logging/service/pretty_print_log_writer.dart';
 
 import 'fixture/config_value_builder.dart';
 
@@ -50,6 +51,7 @@ void main() async {
     ignoresEmptyStringScopes();
     ignoresScopesThatJustContainSpaces();
     mapsClientId();
+    setLogWriter();
   });
 }
 
@@ -176,5 +178,15 @@ Future<void> mapsClientId() async {
     var values = ConfigValueBuilder(clientId: ConfigValueBuilder.applicationClientId).build();
     loadConfigValues(configValues: values);
     expect(GlobalEnvironmentValues.instance.applicationClientId, ConfigValueBuilder.applicationClientId);
+  });
+}
+
+Future<void> setLogWriter() async {
+  return test('Can set the log writer.', () {
+    var values = ConfigValueBuilder(clientId: ConfigValueBuilder.applicationClientId).build();
+    loadConfigValues(configValues: values);
+    var logWriter = PrettyPrintLogWriter();
+    GlobalEnvironmentValues.instance.setLogWriter(logWriter);
+    expect(GlobalEnvironmentValues.instance.logWriter, logWriter);
   });
 }
