@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simbucore/app/core/model/environments.dart';
+import 'package:simbucore/app/core/model/platform_type.dart';
 import 'package:simbucore/app/core/service/global_environment_values.dart';
 import 'package:simbucore/app/logging/service/pretty_print_log_writer.dart';
 
@@ -52,6 +53,7 @@ void main() async {
     ignoresScopesThatJustContainSpaces();
     mapsClientId();
     setLogWriter();
+    setPlatform();
   });
 }
 
@@ -188,5 +190,16 @@ Future<void> setLogWriter() async {
     var logWriter = PrettyPrintLogWriter();
     GlobalEnvironmentValues.instance.setLogWriter(logWriter);
     expect(GlobalEnvironmentValues.instance.logWriter, logWriter);
+  });
+}
+
+
+Future<void> setPlatform() async {
+  return test('Can set the platform e.g. iOS.', () {
+    var values = ConfigValueBuilder(clientId: ConfigValueBuilder.applicationClientId).build();
+    loadConfigValues(configValues: values);
+    
+    GlobalEnvironmentValues.instance.setPlatform(PlatformType.iOS);
+    expect(GlobalEnvironmentValues.instance.platform, PlatformType.iOS);
   });
 }

@@ -2,6 +2,7 @@
 
 import 'package:simbucore/app/core/model/environment_values.dart';
 import 'package:simbucore/app/core/model/environments.dart';
+import 'package:simbucore/app/core/model/platform_type.dart';
 import 'package:simbucore/app/core/service/env_config_reader.dart';
 import 'package:simbucore/app/logging/service/log_writer.dart';
 
@@ -13,6 +14,7 @@ class GlobalEnvironmentValues {
 
   late EnvironmentValues _values;
   late LogWriter _logWriter;
+  late PlatformType _platform;
 
   String get apiEndpoint => _values.apiEndpoint;
   Environments get environment => _values.environment;
@@ -20,6 +22,7 @@ class GlobalEnvironmentValues {
   List<String> get scopes => _values.authScopes;
   String get applicationClientId => _values.clientId;
   LogWriter get logWriter => _logWriter;
+  PlatformType get platform => _platform;
 
   void loadValues(String jsonEnvironmentValues) {
     var reader = EnvConfigReader(jsonEnvironmentValues);
@@ -58,5 +61,9 @@ class GlobalEnvironmentValues {
 
   void setLogWriter(LogWriter logWriter) {
     _logWriter = logWriter;
+  }
+
+  void setPlatform(PlatformType platformType) {
+    _platform = platformType;
   }
 }
