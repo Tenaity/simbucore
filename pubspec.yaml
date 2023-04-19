@@ -48,8 +48,7 @@ dependencies:
   # A reactive state caching and data-binding framework
   # Recommend replacement for provider: that is mentioned by flutter
   # https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
-  hooks_riverpod: ^1.0.3+1
-
+  hooks_riverpod: ^2.3.5
   # Extended date/time methods
   intl:
 
