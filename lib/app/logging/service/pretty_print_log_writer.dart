@@ -23,12 +23,12 @@ class PrettyPrintLogWriter implements LogWriter {
 
   @override
   void error(message, {StackTrace? stackTrace}) {
-    logger.e(prefixDateTime(message), stackTrace);
+    logger.e({prefixDateTime(message), stackTrace});
   }
 
   @override
   void fatal(message, {StackTrace? stackTrace}) {
-    logger.wtf(prefixDateTime(message), stackTrace);
+    logger.f(prefixDateTime(message));
   }
 
   @override
@@ -41,12 +41,13 @@ class PrettyPrintLogWriter implements LogWriter {
     logger.w(prefixDateTime(message));
   }
 
-  dynamic prefixDateTime(dynamic message){
-    if (message is! String){
+  dynamic prefixDateTime(dynamic message) {
+    if (message is! String) {
       return message;
     }
 
-    var dtPrefix = '${DateFormat("yyyyMMdd HH:mm:ss").format(DateTime.now())} : ';
+    var dtPrefix =
+        '${DateFormat("yyyyMMdd HH:mm:ss").format(DateTime.now())} : ';
 
     return dtPrefix + message;
   }
